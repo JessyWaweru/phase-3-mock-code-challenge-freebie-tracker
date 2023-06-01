@@ -2,10 +2,14 @@ class Dev < ActiveRecord::Base
 has_many :freebies
 has_many :companies, through: :freebies
 
+
 def freebies
-    Freebie.where(dev_id:id)
+    super
 end
 
+def companies
+    super
+end
 def received_one?(item_name)
     freebies.exists?(item_name: item_name)
 end
